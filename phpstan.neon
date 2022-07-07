@@ -1,0 +1,17 @@
+parameters:
+  level: max
+  paths:
+      - src
+      - tests
+  scanDirectories:
+      - src
+      - tests
+  parallel:
+      processTimeout: 150.0
+
+  bootstrapFiles:
+        - tests/bootstrap.php
+
+includes:
+    - vendor/phpstan/phpstan-symfony/extension.neon
+    - vendor/phpstan/phpstan-phpunit/rules.neon

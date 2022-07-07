@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+main() {
+    echo "running_in_docker:"
+
+    docker-compose \
+        run \
+        --no-deps \
+        --rm \
+        "php-fpm" \
+        php \
+            "${@}"
+}
+
+main "${@}"

@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+main() {
+    echo "running_in_docker:"
+
+    docker-compose \
+        run \
+        --no-deps \
+        --rm \
+        "php-fpm" \
+        ./vendor/bin/phpstan \
+            "${@}"
+}
+
+main_exec() {
+    echo "running_in_docker (exec):"
+
+    docker-compose \
+        exec \
+        "php-fpm" \
+        ./vendor/bin/phpstan \
+            "${@}"
+}
+
+main_exec "${@}"
