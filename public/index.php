@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Billie\Kernel;
+use Billing\Kernel;
 
 require_once dirname(__DIR__) . '/vendor/autoload_runtime.php';
 

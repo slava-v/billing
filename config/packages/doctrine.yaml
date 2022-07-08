@@ -1,16 +1,17 @@
 doctrine:
     dbal:
         url: '%env(resolve:DATABASE_URL)%'
+        driver: pdo_mysql
     orm:
         auto_generate_proxy_classes: true
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
         mappings:
-            Billie:
+            Billing:
                 is_bundle: false
                 dir: '%kernel.project_dir%/src/DataLayer/Entity'
-                prefix: 'Billie\DataLayer\Entity'
-                alias: App
+                prefix: 'Billing\DataLayer\Entity'
+                alias: Billing
 
 when@test:
     doctrine:

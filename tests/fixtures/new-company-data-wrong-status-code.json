@@ -1,0 +1,35 @@
+{
+  "name": "Beer",
+  "address": "Gottfried-Schade-Allee 12\n16038 Karlsfeld",
+  "iban": "DE71392549968205189179",
+  "balance": 4236277,
+  "debtorLimit": 452272221,
+  "accessToken": "55c4f6746aa56e090627f8d8086e8587",
+  "status": "BBADCODE",
+  "email": "wkunz@hess.de",
+  "phoneNumber": "01973 93291",
+  "createdAt": {
+    "timezone": {
+      "name": "UTC",
+      "transitions": [
+        {
+          "ts": -9223372036854775808,
+          "time": "-292277022657-01-27T08:29:52+0000",
+          "offset": 0,
+          "isdst": false,
+          "abbr": "UTC"
+        }
+      ],
+      "location": {
+        "country_code": "??",
+        "latitude": -90,
+        "longitude": -180,
+        "comments": ""
+      }
+    },
+    "offset": 0,
+    "timestamp": 1657461416
+  },
+  "debitedInvoices": [],
+  "creditedInvoices": []
+}

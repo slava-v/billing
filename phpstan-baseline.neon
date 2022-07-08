@@ -1,0 +1,36 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\$repositoryClass of attribute class Doctrine\\\\ORM\\\\Mapping\\\\Entity constructor expects class\\-string\\<Doctrine\\\\ORM\\\\EntityRepository\\<T of object\\>\\>\\|null, 'Billie\\\\\\\\DataLayer\\\\\\\\Repository\\\\\\\\CompanyRepositoryInterface' given\\.$#"
+			count: 1
+			path: src/DataLayer/Entity/Company.php
+
+		-
+			message: "#^Property Billie\\\\DataLayer\\\\Entity\\\\Company\\:\\:\\$id is never written, only read\\.$#"
+			count: 1
+			path: src/DataLayer/Entity/Company.php
+
+		-
+			message: "#^Parameter \\$repositoryClass of attribute class Doctrine\\\\ORM\\\\Mapping\\\\Entity constructor expects class\\-string\\<Doctrine\\\\ORM\\\\EntityRepository\\<T of object\\>\\>\\|null, 'Billie\\\\\\\\DataLayer\\\\\\\\Repository\\\\\\\\InvoiceRepositoryInterface' given\\.$#"
+			count: 1
+			path: src/DataLayer/Entity/Invoice.php
+
+		-
+			message: "#^Property Billie\\\\DataLayer\\\\Entity\\\\Invoice\\:\\:\\$id is never written, only read\\.$#"
+			count: 1
+			path: src/DataLayer/Entity/Invoice.php
+
+		-
+			message: "#^Interface Billie\\\\DataLayer\\\\Repository\\\\CompanyRepositoryInterface has @extends tag, but does not extend any interface\\.$#"
+			count: 1
+			path: src/DataLayer/Repository/CompanyRepositoryInterface.php
+
+		-
+			message: "#^Interface Billie\\\\DataLayer\\\\Repository\\\\InvoiceRepositoryInterface has @extends tag, but does not extend any interface\\.$#"
+			count: 1
+			path: src/DataLayer/Repository/InvoiceRepositoryInterface.php
+
+		-
+			message: "#^Property Billie\\\\Tests\\\\Integration\\\\WebTestCase\\:\\:\\$client \\(Symfony\\\\Bundle\\\\FrameworkBundle\\\\KernelBrowser\\|null\\) does not accept object\\|null\\.$#"
+			count: 1
+			path: tests/Integration/WebTestCase.php

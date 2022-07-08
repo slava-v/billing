@@ -1,3 +1,3 @@
 controllers:
-    resource: ../src/Presentation/Controller/
+    resource: ../src/Application/Api/V1/Controller/
     type: annotation

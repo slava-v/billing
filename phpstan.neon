@@ -10,8 +10,11 @@ parameters:
       processTimeout: 150.0
 
   bootstrapFiles:
-        - tests/bootstrap.php
+      - tests/bootstrap.php
+  stubFiles:
+      - .dev/PHPStan/Generator.stub
 
 includes:
     - vendor/phpstan/phpstan-symfony/extension.neon
     - vendor/phpstan/phpstan-phpunit/rules.neon
+    - phpstan-baseline.neon

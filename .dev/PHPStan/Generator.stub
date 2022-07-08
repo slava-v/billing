@@ -1,0 +1,19 @@
+<?php
+
+namespace Faker;
+
+use Psr\Container\ContainerInterface;
+
+/**
+ * @method string bankAccountNumber()
+ * @method string company()
+ * @method string address()
+ * @method string email()
+ * @method string phoneNumber()
+ * @method string ipv4()
+ * @method string uuid()
+ */
+class Generator
+{
+
+}

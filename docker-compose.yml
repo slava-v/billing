@@ -2,17 +2,33 @@ version: "3"
 services:
 
     php-fpm:
-        image: bitnami/php-fpm:8.1
+        build:
+            context: .
+            dockerfile: .dev/Dockerfile-8.1
+        command: php-fpm --allow-to-run-as-root
         volumes:
-            - "${PROJECT_ROOT}/public:/var/www:cached"
-            - "${PROJECT_ROOT}:/app"
+            - "${PROJECT_ROOT}:/var/www:cached"
             - "${PROJECT_ROOT}/var/composer-cache:/.composer:cached"
         environment:
             APP_ENV: ${APP_ENV}
-            ENABLE_XDEBUG: 1
-            XDEBUG_CONFIG: remote_enable=on remote_autostart=off remote_host=172.17.0.1 idekey=PHPSTORM
+            XDEBUG_MODE: "develop,debug"
             PHP_MEMORY_LIMIT: -1
+            PHP_IDE_CONFIG: ${PHP_IDE_CONFIG}
         user: ${USER_ID}:${GROUP_ID}
+        hostname: 'billing.local'
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        depends_on:
+            -   database
+
+    swagger-ui:
+        image: "swaggerapi/swagger-ui"
+        volumes:
+            - "${PROJECT_ROOT:-.}/openapi.v1.json:/usr/share/nginx/html/openapi.v1.json"
+            - "${HOME:?err}/.ssh/known_hosts:/etc/ssh/ssh_known_hosts:ro"
+        environment:
+            URLS: '[{ url: "openapi.v1.json", name: "Api v1"}]'
+
 
     ###> doctrine/doctrine-bundle ###
     database:
@@ -31,3 +47,7 @@ services:
 volumes: ###> doctrine/doctrine-bundle ###
     db-data:
 ###< doctrine/doctrine-bundle ###
+
+networks:
+    default:
+        driver: bridge

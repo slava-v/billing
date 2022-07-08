@@ -1,0 +1,125 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Billing API",
+        "description": "Api specification",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://billing.local/v1",
+            "variables": {
+                "locale": {
+                    "enum": [
+                        "de"
+                    ],
+                    "default": "de"
+                }
+            }
+        }
+    ],
+    "paths": {
+        "/v1/company/{name}/name": {
+            "get": {
+                "operationId": "48d885917c731d2acfb89dc718658ba1",
+                "responses": {
+                    "200": {
+                        "description": "Returned when company is found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Company"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returned when no company is available"
+                    }
+                }
+            },
+            "put": {
+                "operationId": "c5791e4490a167380b99b78f7efeb719",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CompanyAddRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returned when company is found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Company"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returned when no company is available"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Company": {
+                "properties": {
+                    "id": {},
+                    "name": {
+                        "type": "string"
+                    },
+                    "address": {
+                        "type": "string"
+                    },
+                    "iban": {
+                        "type": "string"
+                    },
+                    "balance": {
+                        "type": "integer"
+                    },
+                    "debtorLimit": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            },
+            "CompanyAddRequest": {
+                "required": [
+                    "name",
+                    "address"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "address": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "phoneNumber": {
+                        "type": "string"
+                    },
+                    "iban": {
+                        "type": "string"
+                    },
+                    "balance": {
+                        "type": "integer"
+                    },
+                    "debtorLimit": {
+                        "type": "integer"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}

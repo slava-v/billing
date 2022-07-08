@@ -1,2 +1,2 @@
 maker:
-    root_namespace: 'Billie'
+    root_namespace: 'Billing\DataLayer'
